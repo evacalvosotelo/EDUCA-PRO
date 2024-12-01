@@ -99,7 +99,6 @@ heatmap_fig = go.Figure(data=go.Heatmap(
     colorscale='Viridis'))
 heatmap_fig.update_layout(title='Correlation Heatmap')
 
-# APP
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
@@ -464,6 +463,5 @@ def predict_grade(n_clicks, hours_studied, attendance, sleep_hours, motivation_l
     return ""
 
 
-# Run the app
 if __name__ == '__main__':
     app.run_server(debug=True)
