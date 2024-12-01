@@ -7,6 +7,10 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import os
+
+
+pd.set_option('future.no_silent_downcasting', True) # to silence the warnings or "replace depreceated"
 
 # Load and preprocess data
 file_path = 'StudentPerformanceFactors.csv'
@@ -464,4 +468,5 @@ def predict_grade(n_clicks, hours_studied, attendance, sleep_hours, motivation_l
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(debug=False, host='0.0.0.0', port=port)
